@@ -116,7 +116,7 @@ public class ScheduleController {
 			throw  new ResponseStatusException( HttpStatus.BAD_REQUEST, "Enrollment_id invalid. "+enrollment_id);
 		}
 	}
-	
+//
 	/* 
 	 * helper method to transform course, enrollment, student entities into 
 	 * a an instance of ScheduleDTO to return to front end.
