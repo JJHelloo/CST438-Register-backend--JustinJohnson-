@@ -23,16 +23,17 @@ public class StudentController {
 		
 		s.setName(name);
 		// check if email is used, throws an Exception if so
-		if(studentRepository.findByEmail(email) != null) 
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email already exists");
-		else 
+		if(studentRepository.findByEmail(email) == null) 
 			s.setEmail(email);
+		else 
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email already exists");
+			
 		
 		studentRepository.save(s);
 		return s;
 	}
 	
-	@PostMapping("/student/new")
+	@PostMapping("/student/hold")
 	public Student studentHold(String email) {
 		Student s = studentRepository.findByEmail(email);
 		
@@ -49,6 +50,8 @@ public class StudentController {
 		
 		return s;
 	}
+	
+	@PostMapping("/student/release")
 	public Student studentHoldRelease(String email) {
 		Student s = studentRepository.findByEmail(email);
 		
