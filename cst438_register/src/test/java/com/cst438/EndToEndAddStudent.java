@@ -104,5 +104,5 @@ public class EndToEndAddStudent {
 		}
 
 	}
-}
+} // end of main class of file
 	
